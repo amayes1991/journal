@@ -176,3 +176,6 @@ hr{
 .nav-pills .nav-link{
   font-size: 1.25em;
 }
+.navbar-toggler{
+  background-color: #086E7D
+}
