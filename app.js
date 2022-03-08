@@ -121,11 +121,15 @@ app.get("/about", function(req, res){
   res.render("about")
 })
 
+app.get("/getting-started", function(req, res){
+  res.render("getting-started")
+})
+
 app.get("/userhome", function(req, res){
 
   if(req.isAuthenticated()){
     User.findById(req.user.id, function(err, foundUser){
-      console.log(foundUser.firstName)
+      // console.log(foundUser.firstName)
       if(err){
         console.log(err)
       } else{
@@ -158,7 +162,7 @@ app.get("/notes", function(req, res){
 
 app.get("/userhome/notes/:notesId", function(req, res){
 
-  console.log(req)
+
 
 
 const userId = req.user.id

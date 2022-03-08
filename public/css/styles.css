@@ -48,6 +48,19 @@ hr{
   padding-bottom: 50px;
   padding-left: 100px;
 }
+.userTitles{
+  font-weight: 600;
+  font-size: 4em;
+  text-align: center;
+  text-decoration: underline;
+  margin-left: 200px;
+  margin-bottom: 0;
+  background-color: #086E7D;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 100px;
+  color: white;
+}
 
 .blog-text{
   margin-left: 200px;
