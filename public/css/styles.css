@@ -96,9 +96,10 @@ hr{
   display: inline-grid;
 }
 .delete-button-compose{
-  position: absolute;
+  /* position: absolute; */
   padding-left: 40%;
   padding-bottom: 20%;
+  transform: translateY(-30px);
 }
 .header-title{
   font-size: 4em;
@@ -123,10 +124,12 @@ hr{
  /* display: inline-grid; */
   /* float: left; */
 }
-.round{
+.delete-button{
   border-radius: 100%;
   background-color: #F5F5F5;
   border: none;
+  text-decoration: underline;
+  color: #086E7D
 }
 .form{
   text-align: center;

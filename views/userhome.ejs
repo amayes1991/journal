@@ -29,13 +29,13 @@
 <h2 class="userTitle" id="user-title-_id"> <%= user.title %> </h2>
 <p class="user-content" id="user-content-_id">
   <%= user.content + "..." %>
-<a name="<%= user.title %>" href="/userhome/notes/<%=user._id %>">Edit</a>
-
 
 </p>
-<form class="delete-button" action=/api/<%=user._id %>/<%=logId%> method="post">
+<a name="<%= user.title %>" class="delete-button"href="/userhome/notes/<%=user._id %>">Edit</a>
+
+<form id="delete-link" class="delete-button" action=/api/<%=user._id %>/<%=logId%> method="post">
   <input type="hidden" name="_method" value="delete">
-  <button type="submit" name="button" class="round" value="<%= user.title %>"></button>
+  <button type="submit" name="button" class="delete-button" value="<%= user.title %>">Delete</button>
 
 </form>
 
