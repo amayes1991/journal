@@ -1,0 +1,23 @@
+
+<%- include("partials/userheader"); -%>
+<section class='compose'>
+
+
+
+<form class="" action="/compose" method="post" id="user_notes">
+
+
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input type="text" class="form-control" name="bookTitle" id="" placeholder="Title">
+</div>
+<div class="mb-3">
+  <label for="content" class="form-label">Content</label>
+  <textarea class="form-control" name="bookContent" id="" rows="3"></textarea>
+</div>
+<button type="submit" name="button">Submit</button>
+
+</form>
+
+</section>
+<%- include("partials/userfooter"); -%>

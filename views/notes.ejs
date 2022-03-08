@@ -1,0 +1,31 @@
+<%- include("partials/userheader"); -%>
+
+<div class="form">
+
+
+<form class="" action=/api/<%=user_id %>/<%=book_id%> method="post" >
+
+<input type="hidden" name="_method" value="put">
+<div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+  <input type="hidden" name="id" value="<%=book_id %>">
+  <input type="text" class="form-control" name="title" id="" value="<%=title%>" placeholder="<%=title%>">
+</div>
+<div class="mb-3">
+  <label for="content" class="form-label">Content</label>
+  <textarea class="form-control" name="content" id="" value= "<%=content%>"rows="3"><%=content%></textarea>
+</div>
+<button type="submit" name="button">Submit</button>
+
+<!-- <button type="button" name="button">Delete</button> -->
+
+</form>
+
+<!-- <form class="delete-button-compose" action="index.html" method="post">
+  <input type="hidden" name="" value="">
+  <button type="submit" name="button">Delete</button>
+</form> -->
+</div>
+<!-- id="update_user_notes" -->
+
+<%- include("partials/userfooter") %>

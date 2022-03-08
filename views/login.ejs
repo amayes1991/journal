@@ -1,0 +1,51 @@
+<%- include("partials/header"); -%>
+<section class= "the-body">
+
+<div class="container">
+  <h1 class="login-header">Login To Your Journal</h1>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label class='label'for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label class='label' for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-light">Login</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer"); -%>

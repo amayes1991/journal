@@ -1,0 +1,71 @@
+<%- include("partials/userheader"); -%>
+
+<!-- <div id="main" style='rgbaColor'>
+     <h1>Back Ground Color</h1>
+     <p>Select Button</p>
+     <div id="color_input"></div> -->
+
+<h1 class="userhome">
+  <i class="fa-solid fa-book"></i>
+  <%=firstName%>'s Journal</h1>
+
+<section class="blog-text">
+
+
+
+
+<% foundUser.forEach(function(user){  %>
+
+
+
+
+
+
+<div class="notes container col-16" draggable="true">
+
+
+
+
+<h2 class="userTitle" id="user-title-_id"> <%= user.title %> </h2>
+<p class="user-content" id="user-content-_id">
+  <%= user.content + "..." %>
+<a name="<%= user.title %>" href="/userhome/notes/<%=user._id %>">Edit</a>
+
+
+</p>
+<form class="delete-button" action=/api/<%=user._id %>/<%=logId%> method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" name="button" class="round" value="<%= user.title %>"><i class="fa-solid fa-x"></i></button>
+
+</form>
+
+
+
+
+  </div>
+
+<hr>
+
+
+
+
+
+
+<% })  %>
+
+
+<!-- <div class="color-picker">
+
+</div>
+ -->
+
+<!-- <button class="click">Click</button>
+<span class="color"></span>
+
+ -->
+
+
+
+</section>
+     <!-- </div> -->
+<%- include("partials/userfooter"); -%>
