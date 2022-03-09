@@ -189,6 +189,12 @@ hr{
 .col-sm-4{
   margin:auto;
 }
+.col-4{
+  margin: auto;
+}
+.col-sm-6{
+  margin: auto;
+}
 .row{
   margin: auto;
 }
