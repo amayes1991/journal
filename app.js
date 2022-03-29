@@ -2,8 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
-////imnporting doc module that I created
-// const docs = require(__dirname + '/docs.js')
+require('dotenv/config')
 
 var LocalStrategy = require('passport-local');
 
@@ -15,6 +14,8 @@ const passport = require('passport');
 const passportLocalMongoose = require("passport-local-mongoose")
 
 const app = express();
+
+const postRoute = require("./route/posts")
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -44,7 +45,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://admin-lee:Liker22371@journalcluster.woru8.mongodb.net/journalDb", {useNewUrlParser: true});
+mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser: true});
 
 
 const userSchema = new mongoose.Schema({
@@ -95,10 +96,6 @@ app.post("/compose", function(req, res){
 
   const note = {"title": req.body.bookTitle, "content": req.body.bookContent}
 
-  // const submittedTitle = req.body.bookTitle;
-  // const submittedContent = req.body.bookContent;
-  // console.log(submittedTitle)
-  // console.log(submittedContent)
 
   User.findById(req.user.id, function(err, foundUser){
     if(err){
@@ -106,8 +103,7 @@ app.post("/compose", function(req, res){
     } else{
       if(foundUser){
         foundUser.book.push(note)
-        // foundUser.book.note.title = submittedTitle
-        // foundUser.book.note.content = submittedContent
+
         foundUser.save(function(){
           res.redirect("/userhome")
         })
@@ -129,7 +125,7 @@ app.get("/userhome", function(req, res){
 
   if(req.isAuthenticated()){
     User.findById(req.user.id, function(err, foundUser){
-      // console.log(foundUser.firstName)
+
       if(err){
         console.log(err)
       } else{
@@ -170,17 +166,13 @@ const userId = req.user.id
 const notes = req.user.book.id
 
   const reqestedNotesId = req.params.notesId
-  // console.log(reqestedNotesId)
-
-  // user = req.user.book.find()
 
   User.findById(req.user.id, function(err, foundNote){
     console.log(foundNote.id)
     const book = foundNote.book
 
     const filterBook = book.find((e) => e._id == reqestedNotesId)
-    // console.log(filterBook)
-    // console.log(filterBook.title)
+
     if(err){
       console.log(err)
     } else{
@@ -200,11 +192,7 @@ const notes = req.user.book.id
 });
 })
 
-// app.route("/api/users", function(req, res){
-//
-// })
 
-///////////////////////////////Create Api///////////////////////////////
 app.route("/api")
 .get(function(req, res){
 
